@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled'
+import moment from 'moment';
 
 const MessageStyled = styled.div`
   background-color: ${(props)=>props.owner ? '#F8E4CB': '#F2F2F2'};
@@ -8,6 +9,7 @@ const MessageStyled = styled.div`
   border-bottom-left-radius: ${(props)=>props.owner ? '8px': '0'};
   border-bottom-right-radius: ${(props)=>props.owner ? '0': '8px'};
   padding: 1em 1em;
+  text-align: center;
 `;
 
 const WrapperMessageStyled = styled.div`
@@ -19,6 +21,7 @@ const WrapperMessageStyled = styled.div`
 
 const Message = (props) => {
   return <WrapperMessageStyled owner={props.owner}>
+    <span>{moment(props.createdAt).format('HH:mm')}</span>
     <div>
       <MessageStyled owner={props.owner}>
         {props.message}

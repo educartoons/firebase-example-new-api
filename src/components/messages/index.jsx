@@ -36,7 +36,7 @@ const Messages = () => {
 
   return <BoxStyled>
     {
-      messages.map(message=><Message key={message.id} owner={user===message.user} message={message.message}/>)
+      messages.map(message=><Message key={message.id} owner={user===message.user} message={message.message} createdAt={message.createdAt}/>)
     }
     <SendMessage />
   </BoxStyled>
